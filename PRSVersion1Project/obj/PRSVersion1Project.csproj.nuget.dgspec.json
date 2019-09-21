@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MAX-Student\\source\\repos\\PRSVersion1Solution\\PRSVersion1Project\\PRSVersion1Project.csproj": {}
+    "C:\\repos\\PRSVersion1Solution\\PRSVersion1Project\\PRSVersion1Project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MAX-Student\\source\\repos\\PRSVersion1Solution\\PRSVersion1Project\\PRSVersion1Project.csproj": {
+    "C:\\repos\\PRSVersion1Solution\\PRSVersion1Project\\PRSVersion1Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MAX-Student\\source\\repos\\PRSVersion1Solution\\PRSVersion1Project\\PRSVersion1Project.csproj",
+        "projectUniqueName": "C:\\repos\\PRSVersion1Solution\\PRSVersion1Project\\PRSVersion1Project.csproj",
         "projectName": "PRSVersion1Project",
-        "projectPath": "C:\\Users\\MAX-Student\\source\\repos\\PRSVersion1Solution\\PRSVersion1Project\\PRSVersion1Project.csproj",
+        "projectPath": "C:\\repos\\PRSVersion1Solution\\PRSVersion1Project\\PRSVersion1Project.csproj",
         "packagesPath": "C:\\Users\\MAX-Student\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MAX-Student\\source\\repos\\PRSVersion1Solution\\PRSVersion1Project\\obj\\",
+        "outputPath": "C:\\repos\\PRSVersion1Solution\\PRSVersion1Project\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

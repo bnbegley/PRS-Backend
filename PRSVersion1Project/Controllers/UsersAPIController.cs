@@ -101,5 +101,34 @@ namespace PRSVersion1Project.Controllers
         {
             return _context.Users.Any(e => e.Id == id);
         }
+
+
+        //[HttpPost("login")]
+        //public async Task<ActionResult<User>> GetUser(User users)
+        //{
+        //    var user = await _context
+        //        .Users.Where(m => m.Username == users.Username && m.Password == users.Password)
+        //        .FirstOrDefaultAsync();
+        //    if (user == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return user;
+        //}
+
+        // GET: api/Users/Auth/Username/Password
+        [HttpGet("/api/UsersAPI/{username}/{password}")]
+        public async Task<ActionResult<User>> GetAuthenticate(string username, string password)
+        {
+            var user = await _context.Users
+                .SingleOrDefaultAsync(u => u.Username.ToLower().Equals(username.ToLower())
+                    && u.Password.Equals(password));
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return user;
+        }
+
     }
 }
