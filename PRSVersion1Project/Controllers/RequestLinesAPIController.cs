@@ -56,7 +56,7 @@ namespace PRSVersion1Project.Controllers
             {
                 await _context.SaveChangesAsync();
                 //call recalculate?
-                var success = RecalculateRequestTotal(requestLine.Id);
+                var success = RecalculateRequestTotal(requestLine.RequestId);
                 if (!success) { return this.StatusCode(500); }
             }
             catch (DbUpdateConcurrencyException)
@@ -80,14 +80,14 @@ namespace PRSVersion1Project.Controllers
         {
             _context.RequestLines.Add(requestLine);
             await _context.SaveChangesAsync();
-            //call recalc
-           var success = RecalculateRequestTotal(requestLine.Id);
-            if (!success) { return this.StatusCode(500); }
 
+            if (!RecalculateRequestTotal(requestLine.RequestId))
+            {
+
+            }
 
             return CreatedAtAction("GetRequestLine", new { id = requestLine.Id }, requestLine);
         }
-
         // DELETE: api/RequestLinesAPI/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<RequestLine>> DeleteRequestLine(int id)
@@ -101,10 +101,11 @@ namespace PRSVersion1Project.Controllers
             _context.RequestLines.Remove(requestLine);
             await _context.SaveChangesAsync();
             ///call recalc
-            var success = RecalculateRequestTotal(requestLine.Id);
+            var success = RecalculateRequestTotal(requestLine.RequestId);
             if (!success) { return this.StatusCode(500); }
             return requestLine;
         }
+
 
         private bool RequestLineExists(int id)
         {
@@ -123,9 +124,6 @@ namespace PRSVersion1Project.Controllers
                 .Include(l => l.Product)
                 .Where(l => l.RequestId == requestId)
                 .Sum(l => l.Quantity * l.Product.Price);
-
-            if (request.Status == "REVIEW")
-                request.Status = "REVISED";
 
             _context.SaveChanges();
             return true;
